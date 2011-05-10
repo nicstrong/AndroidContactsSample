@@ -1,6 +1,9 @@
 package com.codepoets.contactsample;
 
-public class ContactsSource {
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+
+public class ContactsAccount {
 	private String accountType;
 	private String accountName;
 	private String packageName;
@@ -8,6 +11,9 @@ public class ContactsSource {
 	private int iconRes;
 	private boolean readOnly;
 	
+	public ContactsAccount(String packageName) {
+		this.packageName = packageName;
+	}
 	
 	public String getAccountType() {
 		return accountType;
@@ -15,8 +21,8 @@ public class ContactsSource {
 	public void setAccountType(String accountType) {
 		this.accountType = accountType;
 	}
-	public String Name() {
-		return accountType;
+	public String getAccountName() {
+		return accountName;
 	}
 	public void setAccountName(String accountName) {
 		this.accountName = accountName;
@@ -45,4 +51,20 @@ public class ContactsSource {
 	public void setReadOnly(boolean readOnly) {
 		this.readOnly = readOnly;
 	}
+	
+	public CharSequence getDisplayLabel(Context context) {
+		if (this.titleRes != -1) {
+            return context.getText(this.titleRes);
+        } else {
+            return this.accountType;
+        }
+    }
+
+    public Drawable getDisplayIcon(Context context) {
+        if (this.titleRes != -1) {
+            return context.getResources().getDrawable(this.iconRes);
+        } else {
+            return null;
+        }
+    }
 }
