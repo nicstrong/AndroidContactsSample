@@ -2,8 +2,6 @@ package com.codepoets.contactsample;
 
 import java.util.ArrayList;
 
-import com.codepoets.contactsexamples.R;
-
 import android.app.Activity;
 import android.content.ContentProviderOperation;
 import android.content.OperationApplicationException;
